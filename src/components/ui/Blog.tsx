@@ -7,20 +7,21 @@ import {
 import Container from "@/utils/Container";
 import { blogPosts } from "@/utils/data/blogData";
 import Image from "next/image";
+import { SiBlogger } from "react-icons/si";
 
 import { VscNote } from "react-icons/vsc";
 
 const Blog = () => {
   return (
     <Container>
-      <div className=" bg-black p-2  flex gap-1.5 njustify-center items-center rounded my-4">
+      <div className="my-2 md:my-6 lg:my-12 bg-black py-4  flex gap-2 justify-center items-center rounded ">
         <div>
-          <p className="text-white py-5 text-3xl md:text-5xl lg:text-5xl inline-block  font-semibold  ">
+          <p className=" text-3xl md:text-5xl lg:text-5xl inline-block text-white  font-semibold ">
             Blog Section
           </p>
         </div>
         <div>
-          <VscNote className="w-16 h-16 text-white " />
+          <SiBlogger className="w-12 h-12 text-white" />
         </div>
       </div>
       <div className="flex justify-center items-center mb-16">

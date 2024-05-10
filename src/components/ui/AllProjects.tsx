@@ -3,19 +3,20 @@ import project_data from "@/utils/data/myProjects";
 import React from "react";
 import SingleProject from "./SingleProject";
 import { FaRegImages } from "react-icons/fa";
+import { CgWebsite } from "react-icons/cg";
 
 const AllProjects = () => {
   return (
     <Container>
       <div>
-        <div className="m-2 md:m-6 lg:m-12 bg-amber-600 p-2  flex gap-1.5 justify-center items-center ">
+        <div className="my-2 md:my-6 lg:my-12 bg-black py-4  flex gap-2 justify-center items-center rounded ">
           <div>
-            <p className="text-black text-3xl md:text-5xl lg:text-5xl inline-block  font-semibold ">
+            <p className=" text-3xl md:text-5xl lg:text-5xl inline-block text-white  font-semibold ">
               My Projects
             </p>
           </div>
           <div>
-            <FaRegImages className="w-12 h-12 text-black" />
+            <CgWebsite className="w-12 h-12 text-white" />
           </div>
         </div>
       </div>

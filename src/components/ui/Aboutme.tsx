@@ -1,7 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import Container from "@/utils/Container";
 import React from "react";
+import { FaLaptopCode, FaTools } from "react-icons/fa";
 import { IoCodeSlash } from "react-icons/io5";
+import { RiGraduationCapFill } from "react-icons/ri";
 
 const Aboutme = () => {
   return (
@@ -21,91 +23,40 @@ const Aboutme = () => {
         </div>
         <div>
           <p className="text-sm md:text-xl lg:text-2xl py-1 md:py-5 lg:py-12 ">
-            I am a{" "}
-            <span className="text-amber-400 bg-black px-0 md:px-1 lg:px-1">
-              20 year old Front End developer
-            </span>{" "}
-            , who is passionate about creating user-friendly websites and
-            enhancing user experiences. I also{" "}
-            <span className="text-[#ef4444] bg-[#fca5a5] px-1 font-semibold">
-              Love
-            </span>{" "}
-            to learn new features and latest stuff of web development.
+            - I am a 20 year old Front End developer , who is passionate about
+            creating user-friendly websites and enhancing user experiences. I
+            also Love to learn new features and latest stuff of web development.
           </p>
         </div>
         <div className="p-4 flex justify-start items-center">
           <div className="flex flex-col gap-2">
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               <div>
-                <span className="text-amber-400 whitespace-nowrap p-1 text-sm md:text-base lg:text-xl pr-1 hidden md:block lg:block font-bold">
-                  #
-                </span>
+                <FaLaptopCode className="w-6 h-6 text-amber-600" />
               </div>
               <div>
                 <p className="text-xs md:text-xl lg:text-2xl">
-                  <span className="text-amber-400 text-3xl inline-block md:hidden lg:hidden pr-2">
-                    .
-                  </span>
-                  I am <span className="bg-amber-400 px-1">MERN / NextJS </span>{" "}
-                  Developer.
+                  I am MERN / NextJS Developer.
                 </p>
               </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center gap-2 ">
               <div>
-                <span className="text-amber-400 whitespace-nowrap p-1 text-sm md:text-base lg:text-xl pr-1 hidden md:block lg:block font-bold">
-                  #
-                </span>
+                <RiGraduationCapFill className="w-6 h-6 text-amber-600" />
               </div>
               <div>
                 <p className="text-xs md:text-xl lg:text-2xl">
-                  <span className="text-amber-400 text-3xl inline-block md:hidden lg:hidden pr-2">
-                    .
-                  </span>
-                  usually{" "}
-                  <span className="bg-amber-400">
-                    Feels Comfortable In Front-End
-                  </span>
-                  , But there is always a room for improvement.
+                  I am currently a fresher at Southeast University (CSE)
                 </p>
               </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               <div>
-                <span className="text-amber-400 whitespace-nowrap p-1 text-sm md:text-base lg:text-xl pr-1 hidden md:block lg:block font-bold">
-                  #
-                </span>
+                <FaTools className="w-6 h-6 text-amber-600" />
               </div>
               <div>
                 <p className="text-xs md:text-xl lg:text-2xl">
-                  <span className="text-amber-400 text-3xl inline-block md:hidden lg:hidden pr-2">
-                    .
-                  </span>
-                  I have hands-on experience with{" "}
-                  <span className="bg-amber-400">
-                    MongoDB, Express.js, React, Node.js, Redux, NextJS,
-                    Typescript and many more.
-                  </span>
-                  .
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <div>
-                <span className="text-amber-400 whitespace-nowrap p-1 text-sm md:text-base lg:text-xl pr-1 hidden md:block lg:block font-bold">
-                  #
-                </span>
-              </div>
-              <div>
-                <p className="text-xs md:text-xl lg:text-2xl">
-                  <span className="text-amber-400 text-3xl inline-block md:hidden lg:hidden pr-2">
-                    .
-                  </span>
-                  I like to utilize
-                  <span className="px-1 bg-amber-400">
-                    modern web development technologies
-                  </span>
-                  .
+                  I like to utilize modern web development technologies
                 </p>
               </div>
             </div>

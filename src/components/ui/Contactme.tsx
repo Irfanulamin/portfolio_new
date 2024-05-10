@@ -32,18 +32,17 @@ const Contactme: React.FC = () => {
   return (
     <Container>
       <div className="my-24">
-        <div className="flex justify-start items-center gap-1">
-          <div className="m-2 md:m-6 lg:m-12 bg-amber-600 p-2  flex gap-1.5 justify-center items-center ">
-            <div>
-              <p className="text-white text-3xl md:text-5xl lg:text-5xl  font-semibold ">
-                Contact Me
-              </p>
-            </div>
-            <div>
-              <MdAttachEmail className="w-12 h-12 text-amber-500" />
-            </div>
+        <div className="w-full my-2 md:my-6 lg:my-12 bg-black py-4  flex gap-2 justify-center items-center rounded ">
+          <div>
+            <p className=" text-3xl md:text-5xl lg:text-5xl inline-block text-white  font-semibold ">
+              Contact Me
+            </p>
+          </div>
+          <div>
+            <MdAttachEmail className="w-12 h-12 text-amber-600" />
           </div>
         </div>
+
         <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
           <div className="flex justify-evenly items-center">
             <div>
