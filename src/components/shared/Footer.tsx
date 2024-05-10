@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row lg:flex-row justify-between items-start pb-1 gap-2 md:gap-4 lg:gap-10">
         <div className="flex justify-center items-center">
           <Link href="/">
-            <h1 className="text-2xl lg:text-4xl px-1 font-bold  text-white">
+            <h1 className="text-2xl tracking-widest lg:text-4xl px-1 font-bold  text-white">
               Irfanul Amin
             </h1>
           </Link>
@@ -28,7 +28,7 @@ const Footer = () => {
               <div className="flex justify-center items-center gap-1.5">
                 <div className="text-white">About me</div>
                 <div>
-                  <IoPerson className="text-amber-600" />
+                  <IoPerson className="text-white" />
                 </div>
               </div>
             </Link>
@@ -41,7 +41,7 @@ const Footer = () => {
               <div className="flex justify-center items-center gap-1.5">
                 <div className="text-white">My Projects</div>
                 <div>
-                  <FaLaptopCode className="text-amber-600" />
+                  <FaLaptopCode className="text-white" />
                 </div>
               </div>
             </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
               <div className="flex justify-center items-center gap-1.5">
                 <div className="text-white">Contact me</div>
                 <div>
-                  <FaPhoneAlt className="text-amber-600" />
+                  <FaPhoneAlt className="text-white" />
                 </div>
               </div>
             </Link>
@@ -66,7 +66,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-center items-center gap-1.5">
           <div className="text-white text-xs">+880 1827563064</div>
           <div>
-            <PiPhoneCallBold className="text-amber-600" />
+            <PiPhoneCallBold className="text-white" />
           </div>
         </div>
 
@@ -75,7 +75,7 @@ const Footer = () => {
             irfanulamin07@gmail.com | irfanulamin10@gmail.com
           </div>
           <div>
-            <MdMarkEmailRead className="text-amber-600" />
+            <MdMarkEmailRead className="text-white" />
           </div>
         </div>
       </div>

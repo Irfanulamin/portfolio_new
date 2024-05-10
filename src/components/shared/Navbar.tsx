@@ -16,7 +16,7 @@ const Navbar = () => {
     <header className="flex flex-row justify-between items-center py-5 md:py-10 lg:py-10">
       <div>
         <Link href="/">
-          <h2 className="text-xl md:text-4xl lg:text-4xl font-extrabold">
+          <h2 className="text-xl md:text-4xl lg:text-4xl font-extrabold tracking-wide">
             Irfanul Am<span className="text-amber-600">in</span>
           </h2>
         </Link>
@@ -45,9 +45,11 @@ const Navbar = () => {
               className="font-semibold px-2 text-sm lg:text-base"
             >
               <div className="flex justify-center items-center gap-1.5">
-                <div>About me</div>
                 <div>
-                  <IoPerson className="text-amber-600" />
+                  <p className="text-xl font-semibold">About me</p>
+                </div>
+                <div>
+                  <IoPerson className="w-4 h-4 text-black" />
                 </div>
               </div>
             </Link>
@@ -58,9 +60,11 @@ const Navbar = () => {
               className="font-semibold px-2 text-sm lg:text-base"
             >
               <div className="flex justify-center items-center gap-1.5">
-                <div>My Projects</div>
                 <div>
-                  <FaLaptopCode className="text-amber-600" />
+                  <p className="text-xl font-semibold">My Projects</p>
+                </div>
+                <div>
+                  <FaLaptopCode className="text-black w-4 h-4" />
                 </div>
               </div>
             </Link>
@@ -71,9 +75,11 @@ const Navbar = () => {
               className="font-semibold px-2 text-sm lg:text-base"
             >
               <div className="flex justify-center items-center gap-1.5">
-                <div>Contact me</div>
                 <div>
-                  <FaPhoneAlt className="text-amber-600" />
+                  <p className="text-xl font-semibold">Contact me</p>
+                </div>
+                <div>
+                  <FaPhoneAlt className="text-black w-4 h-4" />
                 </div>
               </div>
             </Link>
@@ -89,9 +95,11 @@ const Navbar = () => {
                 className="font-semibold px-0.5 text-sm lg:text-base"
               >
                 <div className="flex justify-center items-center gap-1.5">
-                  <div>About me</div>
                   <div>
-                    <IoPerson className="text-amber-600" />
+                    <p className="text-xl font-semibold">About me</p>
+                  </div>
+                  <div>
+                    <IoPerson className="text-black" />
                   </div>
                 </div>
               </Link>
@@ -103,9 +111,11 @@ const Navbar = () => {
                 className="font-semibold px-0.5 text-sm lg:text-base"
               >
                 <div className="flex justify-center items-center gap-1.5">
-                  <div>My Projects</div>
                   <div>
-                    <FaLaptopCode className="text-amber-600" />
+                    <p className="text-xl font-semibold">My Projects</p>
+                  </div>
+                  <div>
+                    <FaLaptopCode className="text-black" />
                   </div>
                 </div>
               </Link>
@@ -117,9 +127,11 @@ const Navbar = () => {
                 className="font-semibold px-0.5 text-sm lg:text-base"
               >
                 <div className="flex justify-center items-center gap-1.5">
-                  <div>Contact me</div>
                   <div>
-                    <FaPhoneAlt className="text-amber-600" />
+                    <p className="text-xl font-semibold">Contact me</p>
+                  </div>
+                  <div>
+                    <FaPhoneAlt className="text-black" />
                   </div>
                 </div>
               </Link>

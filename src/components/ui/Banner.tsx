@@ -16,21 +16,10 @@ const Banner = () => {
             <span className="text-amber-600"> Front End Developer</span>.
           </h1>
           <p className=" text-xs md:text-lg lg:text-normal text-stone-700 font-medium py-1 md:py-5 lg:py-5">
-            I enjoy creating attractive and user-friendly interfaces. <br />{" "}
-            With a passion for design and technology, <br /> I am dedicated to
-            delivering smooth and enjoyable user experiences that leave a
-            positive impact.
+            I enjoy creating attractive and user-friendly interfaces. With a
+            passion for design and technology, I am dedicated to delivering
+            smooth and enjoyable user experiences that leave a positive impact.
           </p>
-          <div className="bg-amber-600 flex justify-center items-center gap-1 p-2 border-l-4 rounded border-black">
-            <div>
-              <p className="text-xs md:text-sm lg:text-lg font-semibold  ">
-                I am currently a fresher at Southeast University (CSE)
-              </p>
-            </div>
-            <div>
-              <RiGraduationCapFill className="w-6 h-6" />
-            </div>
-          </div>
 
           <div className="flex items-center py-4">
             <div className="inline-block mr-4">

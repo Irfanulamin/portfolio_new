@@ -3,16 +3,17 @@ import Container from "@/utils/Container";
 import React from "react";
 import { FaLaptopCode, FaTools } from "react-icons/fa";
 import { IoCodeSlash } from "react-icons/io5";
+import { MdAttachEmail } from "react-icons/md";
 import { RiGraduationCapFill } from "react-icons/ri";
 
 const Aboutme = () => {
   return (
     <Container>
-      <div className="pt-24 pb-36">
+      <div className="py-2 ">
         <div className="w-full flex justify-center items-center">
-          <div className="m-2 md:m-6 lg:m-12 bg-black p-2  flex gap-1.5 njustify-center items-center ">
+          <div className="w-full my-2 md:my-6 lg:my-12 bg-black py-4  flex gap-2 justify-center items-center rounded ">
             <div>
-              <p className="text-white text-3xl md:text-5xl lg:text-5xl inline-block  font-semibold ">
+              <p className=" text-3xl md:text-5xl lg:text-5xl inline-block text-white  font-semibold ">
                 About Me
               </p>
             </div>
@@ -22,7 +23,7 @@ const Aboutme = () => {
           </div>
         </div>
         <div>
-          <p className="text-sm md:text-xl lg:text-2xl py-1 md:py-5 lg:py-12 ">
+          <p className="text-xl lg:text-2xl py-1 lg:py-6 font-medium">
             - I am a 20 year old Front End developer , who is passionate about
             creating user-friendly websites and enhancing user experiences. I
             also Love to learn new features and latest stuff of web development.
@@ -35,7 +36,7 @@ const Aboutme = () => {
                 <FaLaptopCode className="w-6 h-6 text-amber-600" />
               </div>
               <div>
-                <p className="text-xs md:text-xl lg:text-2xl">
+                <p className="text-xs md:text-xl lg:text-xl font-light">
                   I am MERN / NextJS Developer.
                 </p>
               </div>
@@ -45,7 +46,7 @@ const Aboutme = () => {
                 <RiGraduationCapFill className="w-6 h-6 text-amber-600" />
               </div>
               <div>
-                <p className="text-xs md:text-xl lg:text-2xl">
+                <p className="text-xs md:text-xl lg:text-xl font-light">
                   I am currently a fresher at Southeast University (CSE)
                 </p>
               </div>
@@ -55,7 +56,7 @@ const Aboutme = () => {
                 <FaTools className="w-6 h-6 text-amber-600" />
               </div>
               <div>
-                <p className="text-xs md:text-xl lg:text-2xl">
+                <p className="text-xs md:text-xl lg:text-xl font-light">
                   I like to utilize modern web development technologies
                 </p>
               </div>

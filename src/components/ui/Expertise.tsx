@@ -31,7 +31,7 @@ const Expertise = () => {
   });
   return (
     <Container>
-      <div className="flex flex-wrap justify-evenly py-4 my-4 gap-4">
+      <div className="flex flex-wrap justify-evenly pt-4 pb-36 my-4 gap-4">
         <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
           <Image
             src={htmlImage}

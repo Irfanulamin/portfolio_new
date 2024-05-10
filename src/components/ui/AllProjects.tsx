@@ -20,7 +20,7 @@ const AllProjects = () => {
           </div>
         </div>
       </div>
-      <div className="border border-black py-6 md:py-12 lg:py-24 px-4">
+      <div className="w-full mx-auto">
         {project_data.map((singleProjectData, index) => (
           <SingleProject
             singleProjectData={singleProjectData}

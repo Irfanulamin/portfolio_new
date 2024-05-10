@@ -19,9 +19,11 @@ const SingleProject = ({ singleProjectData }: any) => {
         <ul>
           {singleProjectData.features.map((featureData: string, index: any) => (
             <li key={index}>
-              <p>
-                <span className="text-amber-400 text-3xl">. </span>
-                <span className="text-base font-medium">{featureData}</span>
+              <p className="text-base font-medium">
+                <span className="text-amber-400 text-lg md:text-2xl lg:text-3xl">
+                  .{" "}
+                </span>
+                {featureData}
               </p>
             </li>
           ))}

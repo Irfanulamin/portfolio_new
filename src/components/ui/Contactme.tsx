@@ -55,7 +55,9 @@ const Contactme: React.FC = () => {
             </div>
           </div>
           <div className="w-full border-2 border-black/50 rounded p-8 p lg:w-7/12 px-20">
-            <p>"What are you waiting for ? Get in touch now."</p>
+            <p className="text-lg font-semibold">
+              "What are you waiting for ? Get in touch now."
+            </p>
             <form ref={form} onSubmit={sendEmail}>
               <div className="py-2">
                 <label className="text-sm md:text-lg lg:text-lg font-semibold ">
@@ -66,7 +68,7 @@ const Contactme: React.FC = () => {
                   name="from_name"
                   placeholder="Your name"
                   required
-                  className="mt-1 w-full p-2 text-black border border-gray-400 rounded resize-none focus:outline-none focus:border-black text-xs md:text-lg lg:text-lg"
+                  className="mt-1 w-full p-2 text-black border-2 border-gray-400 rounded resize-none focus:outline-none focus:border-black text-xs md:text-lg lg:text-lg"
                 />
               </div>
               <div className="py-2">
@@ -78,7 +80,7 @@ const Contactme: React.FC = () => {
                   name="from_email"
                   required
                   placeholder="Your email"
-                  className="mt-1 w-full p-2 text-black border border-gray-400 rounded resize-none focus:outline-none focus:border-black text-xs md:text-lg lg:text-lg"
+                  className="mt-1 w-full p-2 text-black border-2 border-gray-400 rounded resize-none focus:outline-none focus:border-black text-xs md:text-lg lg:text-lg"
                 />
               </div>
               <label className="text-sm md:text-lg lg:text-lg font-semibold text-black ">
@@ -88,13 +90,13 @@ const Contactme: React.FC = () => {
                 id="message"
                 name="message"
                 placeholder="Your message"
-                className="mt-1 w-full p-2 text-black border border-gray-400 rounded resize-none focus:outline-none focus:border-black text-xs md:text-lg lg:text-lg"
+                className="mt-1 w-full p-2 text-black border-2 border-gray-400 rounded resize-none focus:outline-none focus:border-black text-xs md:text-lg lg:text-lg"
                 required
               ></textarea>
               <input
                 type="submit"
                 value="Send"
-                className="w-full text-center py-2 bg-amber-600 rounded my-2 font-semibold tracking-wide hover:bg-black hover:text-amber-600 smooth_transition"
+                className="w-full text-white hover:text-black text-center py-2 bg-black rounded my-2 font-semibold tracking-wide hover:bg-amber-600  smooth_transition"
               />
             </form>
           </div>
