@@ -1,13 +1,24 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useCreateBlogsMutation } from "@/redux/api/blogsApi";
 import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
 
 const UploadBlogs = () => {
-  const { handleSubmit, register } = useForm();
-  const onSubmit = (FormValues: FieldValues) => {
-    console.log(FormValues);
+  const [createBlogs] = useCreateBlogsMutation();
+  const { handleSubmit, register, reset } = useForm();
+
+  const onSubmit = async (FormValues: FieldValues) => {
+    try {
+      const response: any = await createBlogs(FormValues);
+      if (response.data && response.data.acknowledged === true) {
+        console.log("ADDED SKILLS");
+        reset();
+      }
+    } catch (error: any) {
+      console.error("Error during registration:", error.message);
+    }
   };
   return (
     <div className="w-full py-10 px-5">
@@ -19,21 +30,21 @@ const UploadBlogs = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <label className="font-semibold ">Title</label>
           <Input
-            {...register("title")}
+            {...register("blog_name")}
             type="text"
             className="m-3"
             placeholder="Title"
           />
           <label className="font-semibold ">Image</label>
           <Input
-            {...register("image")}
+            {...register("blog_image")}
             type="text"
             className="m-3"
             placeholder="Image"
           />
           <label className="font-semibold ">Content</label>
           <Textarea
-            {...register("content")}
+            {...register("blog_description")}
             className="m-3"
             placeholder="Type your message here."
           />

@@ -24,10 +24,10 @@ export const blogsApi = createApi({
       invalidatesTags: ["blogs"],
     }),
     updateBlogs: builder.mutation({
-      query: ({ id, updatedblogs }) => ({
+      query: ({ id, updatedBlogs }) => ({
         url: `update-blogs/${id}`,
         method: "PUT",
-        body: updatedblogs,
+        body: updatedBlogs,
       }),
       invalidatesTags: ["blogs"],
     }),
@@ -41,6 +41,11 @@ export const blogsApi = createApi({
   }),
 });
 
-export const {} = blogsApi;
+export const {
+  useCreateBlogsMutation,
+  useDeleteBlogsMutation,
+  useGetBlogsQuery,
+  useUpdateBlogsMutation,
+} = blogsApi;
 
 export default blogsApi.reducer;
