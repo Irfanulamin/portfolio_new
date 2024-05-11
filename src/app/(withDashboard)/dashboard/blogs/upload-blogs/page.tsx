@@ -1,11 +1,13 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 import { useCreateBlogsMutation } from "@/redux/api/blogsApi";
 import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
 
 const UploadBlogs = () => {
+  const { toast } = useToast();
   const [createBlogs] = useCreateBlogsMutation();
   const { handleSubmit, register, reset } = useForm();
 
@@ -13,7 +15,11 @@ const UploadBlogs = () => {
     try {
       const response: any = await createBlogs(FormValues);
       if (response.data && response.data.acknowledged === true) {
-        console.log("ADDED SKILLS");
+        toast({
+          title: "Your Blog has been added! 💖",
+          description: "Continuously learn to continuously grow 😎",
+        });
+
         reset();
       }
     } catch (error: any) {
