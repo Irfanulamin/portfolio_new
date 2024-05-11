@@ -38,7 +38,7 @@ const UploadBlogs = () => {
           <label className="font-semibold ">Image</label>
           <Input
             {...register("blog_image")}
-            type="text"
+            type="url"
             className="m-3"
             placeholder="Image"
           />

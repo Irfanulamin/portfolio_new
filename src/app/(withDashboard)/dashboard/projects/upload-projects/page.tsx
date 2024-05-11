@@ -1,18 +1,24 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { ImCancelCircle } from "react-icons/im";
 import { FieldValues, useForm } from "react-hook-form";
+import { useCreateProjectsMutation } from "@/redux/api/projectsApi";
 
 const UploadProjectsPage = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [processFeature, setProcessFeature] = useState<string>("");
   const [features, setFeatures] = useState<string[]>([]);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
+  const [createProjects] = useCreateProjectsMutation();
 
   const addFeature = () => {
     if (processFeature) {
       setFeatures([...features, processFeature]);
+    }
+    if (inputRef.current) {
+      inputRef.current.value = ""; // Reset the input value to empty string
     }
   };
   const cancelFeature = (featureToRemove: string) => {
@@ -21,14 +27,26 @@ const UploadProjectsPage = () => {
     );
     setFeatures(updatedFeatures);
   };
-
-  const onSubmit = (eventData: FieldValues) => {
-    console.log(eventData.title);
-    console.log(eventData.image);
-    console.log(eventData.github_link);
-    console.log(eventData.deploy_link);
-    console.log(eventData.content);
-    console.log(features);
+  console.log(features);
+  const onSubmit = async (FormValues: FieldValues) => {
+    try {
+      const createdProjectData = {
+        project_name: FormValues.project_name,
+        project_image: FormValues.project_image,
+        project_description: FormValues.project_description,
+        github_link: FormValues.github_link,
+        deploy_link: FormValues.deploy_link,
+        features: features,
+      };
+      const response: any = await createProjects(createdProjectData);
+      if (response.data && response.data.acknowledged === true) {
+        console.log("ADDED SKILLS");
+        setFeatures([]);
+        reset();
+      }
+    } catch (error: any) {
+      console.error("Error during registration:", error.message);
+    }
   };
 
   return (
@@ -43,20 +61,23 @@ const UploadProjectsPage = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <label className="font-semibold ">Title</label>
           <Input
+            required
             type="text"
-            {...register("title")}
+            {...register("project_name")}
             className="m-3 border border-slate-300"
             placeholder="Title"
           />
           <label className="font-semibold ">Image</label>
           <Input
-            type="text"
-            {...register("image")}
+            required
+            type="url"
+            {...register("project_image")}
             className="m-3 border border-slate-300"
             placeholder="Image"
           />
           <label className="font-semibold ">Github Link</label>
           <Input
+            required
             type="text"
             {...register("github_link")}
             className="m-3 border border-slate-300"
@@ -64,6 +85,7 @@ const UploadProjectsPage = () => {
           />
           <label className="font-semibold ">Deploy Link</label>
           <Input
+            required
             type="text"
             {...register("deploy_link")}
             className="m-3 border border-slate-300"
@@ -73,11 +95,12 @@ const UploadProjectsPage = () => {
           <Textarea
             className="m-3 border border-slate-300"
             placeholder="Type your message here."
-            {...register("content")}
+            {...register("project_description")}
           />
           <div className="flex items-center py-3 justify-start w-full md:w-2/4 lg:w-1/4">
             <label className="font-semibold mr-3">Features</label>
             <Input
+              ref={inputRef}
               type="text"
               placeholder="Feature"
               onBlur={(e) => setProcessFeature(e.target.value)}
@@ -90,12 +113,13 @@ const UploadProjectsPage = () => {
               Add
             </button>
           </div>
-          <div className="pb-8 flex justify-start flex-wrap items-center gap-2">
+
+          <div className="pb-1 flex justify-start flex-wrap items-center gap-2">
             {features.length > 0 &&
               features.map((featureData) => (
                 <div
                   key={featureData}
-                  className="flex justify-center items-center gap-2 bg-black/20 p-2"
+                  className="flex justify-center items-center gap-2 bg-black/20 p-2 rounded-md"
                 >
                   <div>
                     <p>{featureData}</p>
@@ -106,8 +130,14 @@ const UploadProjectsPage = () => {
                 </div>
               ))}
           </div>
+          {features.length < 3 && (
+            <p className="pb-3">
+              Minimum Add {3 - features.length}{" "}
+              {features.length === 2 ? "Feature" : "Features"}
+            </p>
+          )}
           <button
-            className="w-full py-2 bg-black text-white rounded hover:bg-white hover:text-black text-xl font-semibold smooth_transition mx-auto"
+            className="w-full p-2 bg-black text-white rounded hover:bg-white hover:text-black text-xl font-semibold smooth_transition mx-auto"
             type="submit"
           >
             Upload !

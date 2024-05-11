@@ -39,7 +39,7 @@ const UploadSkillsPage = () => {
           <label className="font-semibold ">Image</label>
           <Input
             {...register("image")}
-            type="text"
+            type="url"
             className="m-3"
             placeholder="Image"
             required
