@@ -88,11 +88,13 @@ const ModifySkillsPage = () => {
                     />
                   )}
                 </TableCell>
-                <TableCell className="font-medium">
-                  <p className="text-lg font-medium">{singleSkillData.title}</p>
+                <TableCell>
+                  <p className="text-lg font-semibold">
+                    {singleSkillData.title}
+                  </p>
                 </TableCell>
                 <TableCell>
-                  <p className="text-base text-wrap">
+                  <p className="text-base text-blue-500 underline">
                     {singleSkillData.imageUrl}
                   </p>
                 </TableCell>
@@ -121,14 +123,13 @@ const ModifySkillsPage = () => {
                       </DialogHeader>
 
                       <DialogFooter>
-                        <Button
-                          onClick={() => handleDelete(singleSkillData._id)}
-                          className="bg-red-200 text-red-500 font-medium  p-1 rounded"
-                        >
-                          Delete Blog
-                        </Button>
                         <DialogClose>
-                          <button className="font-medium p-1 ">Close</button>
+                          <Button
+                            onClick={() => handleDelete(singleSkillData._id)}
+                            className="bg-red-200 text-red-500 font-medium  p-1 rounded"
+                          >
+                            Delete Blog
+                          </Button>
                         </DialogClose>
                       </DialogFooter>
                     </DialogContent>

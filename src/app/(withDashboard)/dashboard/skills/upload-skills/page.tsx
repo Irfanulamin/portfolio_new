@@ -7,12 +7,13 @@ import { FieldValues, useForm } from "react-hook-form";
 
 const UploadSkillsPage = () => {
   const [createSkills] = useCreateSkillsMutation();
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, reset } = useForm();
   const onSubmit = async (FormValues: FieldValues) => {
     try {
       const response: any = await createSkills(FormValues);
       if (response.data && response.data.acknowledged === true) {
-        console.log("first");
+        console.log("ADDED SKILLS");
+        reset();
       }
     } catch (error: any) {
       console.error("Error during registration:", error.message);
@@ -33,6 +34,7 @@ const UploadSkillsPage = () => {
             type="text"
             className="m-3"
             placeholder="Title"
+            required
           />
           <label className="font-semibold ">Image</label>
           <Input
@@ -40,6 +42,7 @@ const UploadSkillsPage = () => {
             type="text"
             className="m-3"
             placeholder="Image"
+            required
           />
           <button
             className="w-full py-2 bg-black text-white rounded hover:bg-white hover:text-black text-xl font-semibold smooth_transition "

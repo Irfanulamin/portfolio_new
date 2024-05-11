@@ -39,7 +39,7 @@ const Modal = ({
           <div className="p-5 lg:p-11">
             <div>
               <div>
-                <h2 className="text-xl font-semibold  text-green-500">
+                <h2 className="text-xl font-semibold  text-green-600">
                   Edit Your Skill !
                 </h2>
                 <p className=" text-base ">
@@ -65,6 +65,7 @@ const Modal = ({
                       id="title"
                       {...register("title")}
                       defaultValue={singleSkillData.title}
+                      className="text-lg font-semibold"
                     />
                   </div>
                   <div>
@@ -73,6 +74,7 @@ const Modal = ({
                     </Label>
                     <Input
                       id="imageUrl"
+                      className=" text-base text-blue-500 underline"
                       {...register("imageUrl")}
                       defaultValue={singleSkillData.imageUrl}
                     />
