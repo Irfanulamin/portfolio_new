@@ -1,18 +1,26 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useCreateSkillsMutation } from "@/redux/api/skillsApi";
 import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
+import { useToast } from "@/components/ui/use-toast";
 
 const UploadSkillsPage = () => {
+  const { toast } = useToast();
   const [createSkills] = useCreateSkillsMutation();
   const { handleSubmit, register, reset } = useForm();
   const onSubmit = async (FormValues: FieldValues) => {
+    console.log(FormValues);
     try {
       const response: any = await createSkills(FormValues);
       if (response.data && response.data.acknowledged === true) {
         console.log("ADDED SKILLS");
+
+        toast({
+          title: "Your Skill has been added! 💖",
+          description: "keep learning to add more skills 😎",
+        });
+
         reset();
       }
     } catch (error: any) {
@@ -38,7 +46,7 @@ const UploadSkillsPage = () => {
           />
           <label className="font-semibold ">Image</label>
           <Input
-            {...register("image")}
+            {...register("imageUrl")}
             type="url"
             className="m-3"
             placeholder="Image"
