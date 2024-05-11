@@ -1,14 +1,24 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useCreateSkillsMutation } from "@/redux/api/skillsApi";
 import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
 
 const UploadSkillsPage = () => {
+  const [createSkills] = useCreateSkillsMutation();
   const { handleSubmit, register } = useForm();
-  const onSubmit = (FormValues: FieldValues) => {
-    console.log(FormValues);
+  const onSubmit = async (FormValues: FieldValues) => {
+    try {
+      const response: any = await createSkills(FormValues);
+      if (response.data && response.data.acknowledged === true) {
+        console.log("first");
+      }
+    } catch (error: any) {
+      console.error("Error during registration:", error.message);
+    }
   };
+
   return (
     <div className="w-full py-10 px-5">
       <div>
