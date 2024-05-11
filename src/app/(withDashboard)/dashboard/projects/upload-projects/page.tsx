@@ -5,8 +5,10 @@ import React, { useRef, useState } from "react";
 import { ImCancelCircle } from "react-icons/im";
 import { FieldValues, useForm } from "react-hook-form";
 import { useCreateProjectsMutation } from "@/redux/api/projectsApi";
+import { useToast } from "@/components/ui/use-toast";
 
 const UploadProjectsPage = () => {
+  const { toast } = useToast();
   const inputRef = useRef<HTMLInputElement>(null);
   const [processFeature, setProcessFeature] = useState<string>("");
   const [features, setFeatures] = useState<string[]>([]);
@@ -21,13 +23,14 @@ const UploadProjectsPage = () => {
       inputRef.current.value = ""; // Reset the input value to empty string
     }
   };
+
   const cancelFeature = (featureToRemove: string) => {
     const updatedFeatures = features.filter(
       (feature) => feature !== featureToRemove
     );
     setFeatures(updatedFeatures);
   };
-  console.log(features);
+
   const onSubmit = async (FormValues: FieldValues) => {
     try {
       const createdProjectData = {
@@ -40,7 +43,10 @@ const UploadProjectsPage = () => {
       };
       const response: any = await createProjects(createdProjectData);
       if (response.data && response.data.acknowledged === true) {
-        console.log("ADDED SKILLS");
+        toast({
+          title: "Your Project has been added! 💖",
+          description: "Create projects to innovate and elevate 😎",
+        });
         setFeatures([]);
         reset();
       }
@@ -132,12 +138,12 @@ const UploadProjectsPage = () => {
           </div>
           {features.length < 3 && (
             <p className="pb-3">
-              Minimum Add {3 - features.length}{" "}
-              {features.length === 2 ? "Feature" : "Features"}
+              Add {3 - features.length} more{" "}
+              {features.length === 2 ? "feature" : "features"} in your project.
             </p>
           )}
           <button
-            className="w-full p-2 bg-black text-white rounded hover:bg-white hover:text-black text-xl font-semibold smooth_transition mx-auto"
+            className="w-full my-1 p-2 bg-black text-white rounded hover:bg-white hover:text-black text-xl font-semibold smooth_transition mx-auto"
             type="submit"
           >
             Upload !
