@@ -14,6 +14,7 @@ import redux from "@/asset/images/redux.png";
 import Container from "@/utils/Container";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
+import { skillsData } from "@/utils/data/imagesData";
 
 const Expertise = () => {
   const controls = useAnimation();
@@ -32,83 +33,21 @@ const Expertise = () => {
   return (
     <Container>
       <div className="flex flex-wrap justify-evenly pt-4 pb-36 my-4 gap-4">
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            src={htmlImage}
-            alt="html-image"
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition"
-          />
-        </motion.div>
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            alt=""
-            src={cssImage}
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition"
-          />
-        </motion.div>
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            alt="js-img"
-            src={javascriptImage}
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition"
-          />
-        </motion.div>
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            alt=""
-            src={reactImage}
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition"
-          />
-        </motion.div>
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            alt="tw-img"
-            src={tailwindImage}
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition "
-          />
-        </motion.div>
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            alt="mongodb-img"
-            src={mongoDBImage}
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition "
-          />
-        </motion.div>
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            alt="firebase-img"
-            src={firebaseImage}
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition "
-          />
-        </motion.div>
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            alt="tsc-img"
-            src={tsc}
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition "
-          />
-        </motion.div>
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            alt="nextjs-img"
-            src={nextJS}
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition "
-          />
-        </motion.div>
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            alt="redux-img"
-            src={redux}
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition "
-          />
-        </motion.div>
-        <motion.div initial={{ scale: 0, rotate: 180 }} animate={controls}>
-          <Image
-            alt="framer-motion-jpg"
-            src={framerMotion}
-            className="w-12 h-12 object-cover hover:scale-125 smooth_transition"
-          />
-        </motion.div>
+        {skillsData.map((singleSkillData, index) => (
+          <motion.div
+            key={index}
+            initial={{ scale: 0, rotate: 180 }}
+            animate={controls}
+          >
+            <Image
+              src={singleSkillData.imageUrl}
+              alt={singleSkillData.title}
+              width={200}
+              height={200}
+              className="w-12 h-12 object-cover hover:scale-125 smooth_transition"
+            />
+          </motion.div>
+        ))}
       </div>
     </Container>
   );

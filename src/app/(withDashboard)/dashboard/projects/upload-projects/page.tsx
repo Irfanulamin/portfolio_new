@@ -34,7 +34,7 @@ const UploadProjectsPage = () => {
   return (
     <div className="w-full py-10 px-5">
       <div>
-        <h4 className="text-xl font-bold">Create A Project</h4>
+        <h4 className="text-xl font-bold">Add A Project</h4>
         <p className="text-base font-medium">
           upload your project in one second!
         </p>

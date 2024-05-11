@@ -54,7 +54,7 @@ const ModifyBlogs = () => {
               />
             </TableCell>
             <TableCell className="font-medium">
-              <p className="text-xs">{singlePostData.blog_name}</p>
+              <p className="text-base">{singlePostData.blog_name}</p>
             </TableCell>
             <TableCell>
               <p className="text-xs text-wrap">{singlePostData.blog_image}</p>
