@@ -4,14 +4,14 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { TBlogData } from "@/types/types";
 import Container from "@/utils/Container";
-import { blogPosts } from "@/utils/data/blogData";
 import Image from "next/image";
 import { SiBlogger } from "react-icons/si";
 
-import { VscNote } from "react-icons/vsc";
-
-const Blog = () => {
+const Blog = async () => {
+  const res = await fetch(process.env.BLOGS_URL as string);
+  const blogPosts = await res.json();
   return (
     <Container>
       <div className="my-2 md:my-6 lg:my-12 bg-black py-4  flex gap-2 justify-center items-center rounded ">
@@ -27,43 +27,44 @@ const Blog = () => {
       <div className="flex justify-center items-center mb-16">
         <Carousel className=" max-w-full  ">
           <CarouselContent>
-            {blogPosts.map((blog, index) => (
-              <CarouselItem
-                key={index}
-                className="pl-1 md:basis-1/2 lg:basis-1/3"
-              >
-                <div className="border  rounded">
-                  <Card>
-                    <CardContent className="flex  items-center justify-center py-6">
-                      <div className="w-full">
-                        <Image
-                          src={blog.blog_image}
-                          alt={blog.blog_name}
-                          width={400}
-                          height={400}
-                          className="w-full h-72 object-cover"
-                        />
-                        <div className="flex justify-between items-center">
-                          <div>
-                            <h2 className="text-lg font-bold text-sky-600 tracking-wide">
-                              {blog.blog_name}
-                            </h2>
+            {blogPosts &&
+              blogPosts.map((blog: TBlogData, index: number) => (
+                <CarouselItem
+                  key={index}
+                  className="pl-1 md:basis-1/2 lg:basis-1/3"
+                >
+                  <div className="border  rounded">
+                    <Card>
+                      <CardContent className="flex  items-center justify-center py-6">
+                        <div className="w-full">
+                          <Image
+                            src={blog.blog_image}
+                            alt={blog.blog_name}
+                            width={400}
+                            height={400}
+                            className="w-full h-72 object-cover"
+                          />
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <h2 className="text-lg font-bold text-sky-600 tracking-wide">
+                                {blog.blog_name}
+                              </h2>
+                            </div>
+                            <div>
+                              <p className="text-sm font-bold">
+                                {blog.time_published}
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <p className="text-sm font-bold">
-                              {blog.time_published}
-                            </p>
-                          </div>
+                          <p className="text-sm font-normal">
+                            {blog.blog_description}
+                          </p>
                         </div>
-                        <p className="text-sm font-normal">
-                          {blog.blog_description}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
           </CarouselContent>
         </Carousel>
       </div>

@@ -1,11 +1,12 @@
 import Container from "@/utils/Container";
-import project_data from "@/utils/data/myProjects";
 import React from "react";
 import SingleProject from "./SingleProject";
-import { FaRegImages } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
+import { TProjectData } from "@/types/types";
 
-const AllProjects = () => {
+const AllProjects = async () => {
+  const res = await fetch(process.env.PROJECTS_URL as string);
+  const project_data = await res.json();
   return (
     <Container>
       <div>
@@ -21,7 +22,7 @@ const AllProjects = () => {
         </div>
       </div>
       <div className="w-full mx-auto">
-        {project_data.map((singleProjectData, index) => (
+        {project_data.map((singleProjectData: TProjectData, index: number) => (
           <SingleProject
             singleProjectData={singleProjectData}
             key={index}

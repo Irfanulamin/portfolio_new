@@ -71,7 +71,9 @@ const ModifyProjecrtspage = () => {
         )}
       </>
       <Table>
-        <TableCaption>A list of your recent blogs.</TableCaption>
+        <TableCaption>
+          <p className="py-6">A list of your recent Projects.</p>
+        </TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Overview</TableHead>

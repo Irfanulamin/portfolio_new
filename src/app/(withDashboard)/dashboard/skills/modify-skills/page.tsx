@@ -63,7 +63,9 @@ const ModifySkillsPage = () => {
         )}
       </>
       <Table>
-        <TableCaption>A list of your recent skills.</TableCaption>
+        <TableCaption>
+          <p className="py-6">A list of your recent skills.</p>
+        </TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Overview</TableHead>

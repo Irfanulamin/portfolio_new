@@ -3,7 +3,6 @@ import Container from "@/utils/Container";
 import React from "react";
 import { FaLaptopCode, FaTools } from "react-icons/fa";
 import { IoCodeSlash } from "react-icons/io5";
-import { MdAttachEmail } from "react-icons/md";
 import { RiGraduationCapFill } from "react-icons/ri";
 
 const Aboutme = () => {
@@ -27,6 +26,11 @@ const Aboutme = () => {
             - I am a 20 year old Front End developer , who is passionate about
             creating user-friendly websites and enhancing user experiences. I
             also Love to learn new features and latest stuff of web development.
+            My Goal is to be a Senior Developer
+          </p>
+          <p className="py-2 ">
+            ! Feel free to reach out to me at
+            <span className="text-amber-600"> irfanulamin07@gmail.com</span>
           </p>
         </div>
         <div className="p-4 flex justify-start items-center">
@@ -36,7 +40,7 @@ const Aboutme = () => {
                 <FaLaptopCode className="w-6 h-6 text-amber-600" />
               </div>
               <div>
-                <p className="text-xs md:text-xl lg:text-xl font-light">
+                <p className="text-xl font-normal">
                   I am MERN / NextJS Developer.
                 </p>
               </div>
@@ -46,8 +50,8 @@ const Aboutme = () => {
                 <RiGraduationCapFill className="w-6 h-6 text-amber-600" />
               </div>
               <div>
-                <p className="text-xs md:text-xl lg:text-xl font-light">
-                  I am currently a fresher at Southeast University (CSE)
+                <p className="text-xl font-normal">
+                  I am currently a Student at Southeast University (CSE)
                 </p>
               </div>
             </div>
@@ -56,8 +60,9 @@ const Aboutme = () => {
                 <FaTools className="w-6 h-6 text-amber-600" />
               </div>
               <div>
-                <p className="text-xs md:text-xl lg:text-xl font-light">
-                  I like to utilize modern web development technologies
+                <p className="text-xl font-normal">
+                  I like to utilize and Learn modern web development
+                  technologies
                 </p>
               </div>
             </div>
