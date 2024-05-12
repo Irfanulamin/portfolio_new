@@ -1,19 +1,26 @@
 "use client";
+import { userCurrentToken } from "@/redux/feature/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import Link from "next/link";
 import { useState } from "react";
-import { FaLaptopCode, FaPhoneAlt } from "react-icons/fa";
+import { FaLaptopCode, FaLock, FaPhoneAlt } from "react-icons/fa";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoPerson } from "react-icons/io5";
+import { RiDashboardHorizontalFill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
+import { Button } from "../ui/button";
+import { logOut } from "@/redux/feature/authSlice";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useAppDispatch();
+  const authenticate = useAppSelector(userCurrentToken);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <header className="flex flex-row justify-between items-center py-5 md:py-10 lg:py-10">
+    <header className="flex flex-row gap-3  flex-wrap justify-between md:justify-center lg:justify-between items-center py-5 md:py-10 lg:py-10">
       <div>
         <Link href="/">
           <h2 className="text-xl md:text-4xl lg:text-4xl font-extrabold tracking-wide">
@@ -44,12 +51,12 @@ const Navbar = () => {
               href="/aboutme"
               className="font-semibold px-2 text-sm lg:text-base"
             >
-              <div className="flex justify-center items-center gap-1.5">
+              <div className="flex justify-center items-center gap-1.5 text-black hover:text-amber-600 smooth_transition">
                 <div>
                   <p className="text-xl font-semibold">About me</p>
                 </div>
                 <div>
-                  <IoPerson className="w-4 h-4 text-black" />
+                  <IoPerson className="w-4 h-4 " />
                 </div>
               </div>
             </Link>
@@ -59,31 +66,75 @@ const Navbar = () => {
               href="/my-projects"
               className="font-semibold px-2 text-sm lg:text-base"
             >
-              <div className="flex justify-center items-center gap-1.5">
+              <div className="flex justify-center items-center gap-1.5 text-black hover:text-amber-600 smooth_transition">
                 <div>
                   <p className="text-xl font-semibold">My Projects</p>
                 </div>
                 <div>
-                  <FaLaptopCode className="text-black w-4 h-4" />
+                  <FaLaptopCode className=" w-4 h-4" />
                 </div>
               </div>
             </Link>
           </li>
+
           <li>
             <Link
               href="/contact-me"
               className="font-semibold px-2 text-sm lg:text-base"
             >
-              <div className="flex justify-center items-center gap-1.5">
+              <div className="flex justify-center items-center gap-1.5 text-black hover:text-amber-600 smooth_transition">
                 <div>
                   <p className="text-xl font-semibold">Contact me</p>
                 </div>
                 <div>
-                  <FaPhoneAlt className="text-black w-4 h-4" />
+                  <FaPhoneAlt className=" w-4 h-4" />
                 </div>
               </div>
             </Link>
           </li>
+          <li>
+            {authenticate ? (
+              <Link
+                href="/authenticate"
+                className="font-semibold px-2 text-sm lg:text-base"
+              >
+                <div className="flex justify-center items-center gap-1.5 text-black hover:text-amber-600 smooth_transition ">
+                  <div>
+                    <p className="text-xl font-semibold">Dashboard</p>
+                  </div>
+                  <div>
+                    <RiDashboardHorizontalFill className=" w-4 h-4" />
+                  </div>
+                </div>
+              </Link>
+            ) : (
+              <Link
+                href="/authenticate"
+                className="font-semibold px-2 text-sm lg:text-base"
+              >
+                <div className="flex justify-center items-center gap-1.5 text-black hover:text-amber-600 smooth_transition ">
+                  <div>
+                    <p className="text-xl font-semibold">Authenticate</p>
+                  </div>
+                  <div>
+                    <FaLock className=" w-4 h-4" />
+                  </div>
+                </div>
+              </Link>
+            )}
+          </li>
+          {authenticate && (
+            <li>
+              {" "}
+              <Button
+                onClick={() => dispatch(logOut())}
+                size="sm"
+                variant="destructive"
+              >
+                Logout
+              </Button>
+            </li>
+          )}
         </ul>
       </div>
       {isOpen && (
@@ -94,7 +145,7 @@ const Navbar = () => {
                 href="/aboutme"
                 className="font-semibold px-0.5 text-sm lg:text-base"
               >
-                <div className="flex justify-center items-center gap-1.5">
+                <div className="flex justify-center items-center gap-1.5 text-black hover:text-amber-600 smooth_transition">
                   <div>
                     <p className="text-xl font-semibold">About me</p>
                   </div>
@@ -110,7 +161,7 @@ const Navbar = () => {
                 href="/my-projects"
                 className="font-semibold px-0.5 text-sm lg:text-base"
               >
-                <div className="flex justify-center items-center gap-1.5">
+                <div className="flex justify-center items-center gap-1.5 text-black hover:text-amber-600 smooth_transition">
                   <div>
                     <p className="text-xl font-semibold">My Projects</p>
                   </div>
@@ -126,7 +177,7 @@ const Navbar = () => {
                 href="/contact-me"
                 className="font-semibold px-0.5 text-sm lg:text-base"
               >
-                <div className="flex justify-center items-center gap-1.5">
+                <div className="flex justify-center items-center gap-1.5 text-black hover:text-amber-600 smooth_transition">
                   <div>
                     <p className="text-xl font-semibold">Contact me</p>
                   </div>

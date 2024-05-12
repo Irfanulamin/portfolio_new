@@ -15,12 +15,6 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -30,8 +24,11 @@ import { MdSettings, MdWebStories } from "react-icons/md";
 import { PiBagFill } from "react-icons/pi";
 import { RiFileTextFill } from "react-icons/ri";
 import Link from "next/link";
+import { logOut } from "@/redux/feature/authSlice";
+import { useAppDispatch } from "@/redux/hook";
 
 const DashboardBar = () => {
+  const dispatch = useAppDispatch();
   return (
     <div className="flex justify-between flex-wrap items-center py-7">
       <div>
@@ -141,6 +138,17 @@ const DashboardBar = () => {
               </Link>
             </MenubarContent>
           </MenubarMenu>
+          <MenubarMenu>
+            <div>
+              <Button
+                onClick={() => dispatch(logOut())}
+                size="sm"
+                variant="destructive"
+              >
+                Logout
+              </Button>
+            </div>
+          </MenubarMenu>
         </Menubar>
       </div>
       <div className="block md:hidden lg:hidden">
@@ -240,6 +248,18 @@ const DashboardBar = () => {
                 </DropdownMenuItem>
               </Link>
             </DropdownMenuGroup>
+            <DropdownMenuLabel>
+              <div>
+                <Button
+                  onClick={() => dispatch(logOut())}
+                  size="sm"
+                  variant="destructive"
+                  className="w-full"
+                >
+                  Logout
+                </Button>
+              </div>
+            </DropdownMenuLabel>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
