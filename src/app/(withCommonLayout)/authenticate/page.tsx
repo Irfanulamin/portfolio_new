@@ -22,7 +22,6 @@ const AuthnticatePage = () => {
         email: formData.email,
         password: formData.password,
       };
-      console.log(loginData);
       const response: any = await login(loginData);
       if (response.data && response.data.success) {
         router.push("/dashboard");

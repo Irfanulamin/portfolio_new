@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
-import { useUpdateSkillsMutation } from "@/redux/api/skillsApi";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useUpdateProjectsMutation } from "@/redux/api/projectsApi";
+import { useToast } from "./use-toast";
 
 const ProjectUpdateModal = ({
   singleProjectData,
@@ -16,18 +16,22 @@ const ProjectUpdateModal = ({
   onClose: any;
 }) => {
   const { handleSubmit, register } = useForm();
-
   const [updateProject] = useUpdateProjectsMutation();
+
+  const { toast } = useToast();
 
   const onSubmit = async (FormData: FieldValues) => {
     try {
-      const { data }: any = await updateProject({
+      const response: any = await updateProject({
         id: singleProjectData?._id,
         updatedProject: FormData,
       });
-      console.log(singleProjectData?._id);
-      console.log(FormData);
-      console.log(data);
+      if (response.data && response.data.acknowledged === true) {
+        toast({
+          title: "Your Project has been updated! 💖",
+          description: "keep learning to add more skills 😎",
+        });
+      }
     } catch (error) {
       console.log("error");
     }

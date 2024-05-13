@@ -17,16 +17,19 @@ const SingleProject = ({ singleProjectData }: any) => {
           {singleProjectData.project_description}
         </p>
         <ul>
-          {singleProjectData.features.map((featureData: string, index: any) => (
-            <li key={index}>
-              <p className="text-base font-medium">
-                <span className="text-amber-400 text-lg md:text-2xl lg:text-3xl">
-                  .{" "}
-                </span>
-                {featureData}
-              </p>
-            </li>
-          ))}
+          {singleProjectData.features.length > 0 &&
+            singleProjectData.features.map(
+              (featureData: string, index: any) => (
+                <li key={index}>
+                  <p className="text-base font-medium">
+                    <span className="text-amber-400 text-lg md:text-2xl lg:text-3xl">
+                      .{" "}
+                    </span>
+                    {featureData}
+                  </p>
+                </li>
+              )
+            )}
         </ul>
         <div className="flex gap-2 py-2">
           <Link

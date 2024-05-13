@@ -1,11 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
-import { FieldValues, useForm } from "react-hook-form";
-import { useUpdateSkillsMutation } from "@/redux/api/skillsApi";
+import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { useUpdateBlogsMutation } from "@/redux/api/blogsApi";
 import Tiptap from "./Tiptap";
 
@@ -33,11 +31,11 @@ const BlogUpdateModal = ({
       if (content.trim() !== "") {
         updatedBlogData.blog_description = content;
       }
-      const { data }: any = await updateBlogsData({
+      const res: any = await updateBlogsData({
         id: FormData?._id,
         updatedBlogs: updatedBlogData,
       });
-      console.log(data);
+      console.log(res);
     } catch (error) {
       console.log("error");
     }

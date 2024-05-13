@@ -135,7 +135,7 @@ const ModifySkillsPage = () => {
                               onClick={() =>
                                 handleDelete(singleSkillData._id as string)
                               }
-                              className="bg-red-200 text-red-500 font-medium  p-1 rounded"
+                              variant="destructive"
                             >
                               Delete Blog
                             </Button>

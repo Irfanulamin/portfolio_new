@@ -42,13 +42,14 @@ const UploadProjectsPage = () => {
         features: features,
       };
       const response: any = await createProjects(createdProjectData);
+      console.log(response);
       if (response.data && response.data.acknowledged === true) {
+        setFeatures([]);
+        reset();
         toast({
           title: "Your Project has been added! 💖",
           description: "Create projects to innovate and elevate 😎",
         });
-        setFeatures([]);
-        reset();
       }
     } catch (error: any) {
       console.error("Error during registration:", error.message);

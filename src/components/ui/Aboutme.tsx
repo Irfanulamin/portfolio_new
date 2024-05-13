@@ -29,7 +29,7 @@ const Aboutme = () => {
             My Goal is to be a Senior Developer
           </p>
           <p className="py-2 ">
-            ! Feel free to reach out to me at
+            - Feel free to reach out to me at
             <span className="text-amber-600"> irfanulamin07@gmail.com</span>
           </p>
         </div>

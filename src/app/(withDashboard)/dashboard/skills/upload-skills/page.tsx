@@ -10,18 +10,14 @@ const UploadSkillsPage = () => {
   const [createSkills] = useCreateSkillsMutation();
   const { handleSubmit, register, reset } = useForm();
   const onSubmit = async (FormValues: FieldValues) => {
-    console.log(FormValues);
     try {
       const response: any = await createSkills(FormValues);
       if (response.data && response.data.acknowledged === true) {
-        console.log("ADDED SKILLS");
-
+        reset();
         toast({
           title: "Your Skill has been added! 💖",
           description: "keep learning to add more skills 😎",
         });
-
-        reset();
       }
     } catch (error: any) {
       console.error("Error during registration:", error.message);

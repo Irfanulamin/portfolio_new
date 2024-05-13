@@ -5,6 +5,7 @@ import { useUpdateSkillsMutation } from "@/redux/api/skillsApi";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 
 const Modal = ({
   singleSkillData,
@@ -14,20 +15,27 @@ const Modal = ({
   onClose: any;
 }) => {
   const { handleSubmit, register } = useForm();
-
   const [updateSkillsData] = useUpdateSkillsMutation();
 
+  const { toast } = useToast();
+
   const onSubmit = async (FormData: FieldValues) => {
-    console.log(FormData);
     try {
       const updatedSkillData = {
         title: FormData?.title,
         imageUrl: FormData?.imageUrl,
       };
-      const { data }: any = await updateSkillsData({
+      const response: any = await updateSkillsData({
         id: FormData?._id,
         updatedSkills: updatedSkillData,
       });
+
+      if (response.data && response.data.acknowledged === true) {
+        toast({
+          title: "Your Skill has been updated! 💖",
+          description: "keep learning to add more skills 😎",
+        });
+      }
     } catch (error) {
       console.log("error");
     }
