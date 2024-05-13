@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useUpdateBlogsMutation } from "@/redux/api/blogsApi";
 import Tiptap from "./Tiptap";
+import { useToast } from "./use-toast";
 
 const BlogUpdateModal = ({
   singleBlogData,
@@ -15,10 +16,10 @@ const BlogUpdateModal = ({
   onClose: any;
 }) => {
   const { handleSubmit, register } = useForm();
-
   const [updateBlogsData] = useUpdateBlogsMutation();
-
   const [content, setContent] = useState<any>(null);
+
+  const { toast } = useToast();
 
   const onSubmit = async (FormData: any) => {
     console.log(FormData);
@@ -35,7 +36,12 @@ const BlogUpdateModal = ({
         id: FormData?._id,
         updatedBlogs: updatedBlogData,
       });
-      console.log(res);
+      if (res.data && res.data.acknowledged === true) {
+        toast({
+          title: "Your Blog has been updated! 💖",
+          description: "Continuously learn to continuously grow 😎",
+        });
+      }
     } catch (error) {
       console.log("error");
     }

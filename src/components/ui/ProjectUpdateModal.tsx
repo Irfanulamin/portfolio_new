@@ -29,7 +29,7 @@ const ProjectUpdateModal = ({
       if (response.data && response.data.acknowledged === true) {
         toast({
           title: "Your Project has been updated! 💖",
-          description: "keep learning to add more skills 😎",
+          description: "keep learning to add more Projects 😎",
         });
       }
     } catch (error) {
