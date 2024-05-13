@@ -5,7 +5,9 @@ import { CgWebsite } from "react-icons/cg";
 import { TProjectData } from "@/types/types";
 
 const AllProjects = async () => {
-  const res = await fetch(process.env.PROJECTS_URL as string);
+  const res = await fetch(process.env.PROJECTS_URL as string, {
+    cache: "no-store",
+  });
   const project_data = await res.json();
   return (
     <Container>

@@ -10,7 +10,9 @@ import Image from "next/image";
 import { SiBlogger } from "react-icons/si";
 
 const Blog = async () => {
-  const res = await fetch(process.env.BLOGS_URL as string);
+  const res = await fetch(process.env.BLOGS_URL as string, {
+    cache: "no-store",
+  });
   const blogPosts = await res.json();
   return (
     <Container>

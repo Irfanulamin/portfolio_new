@@ -3,7 +3,9 @@ import Container from "@/utils/Container";
 import { TSingleSkillData } from "@/types/types";
 
 const Expertise = async () => {
-  const res = await fetch(process.env.SKILLS_URL as string);
+  const res = await fetch(process.env.SKILLS_URL as string, {
+    cache: "no-store",
+  });
   const skillsData = await res.json();
 
   return (
