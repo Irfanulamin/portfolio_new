@@ -95,7 +95,7 @@ const Navbar = () => {
           <li>
             {authenticate ? (
               <Link
-                href="/authenticate"
+                href="/dashboard"
                 className="font-semibold px-2 text-sm lg:text-base"
               >
                 <div className="flex justify-center items-center gap-1.5 text-black hover:text-amber-600 smooth_transition ">

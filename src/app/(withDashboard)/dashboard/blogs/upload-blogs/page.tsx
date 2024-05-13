@@ -1,19 +1,25 @@
 "use client";
+import Tiptap from "@/components/ui/Tiptap";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { useCreateBlogsMutation } from "@/redux/api/blogsApi";
-import React from "react";
+import React, { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 
 const UploadBlogs = () => {
   const { toast } = useToast();
   const [createBlogs] = useCreateBlogsMutation();
   const { handleSubmit, register, reset } = useForm();
-
+  const [content, setContent] = useState<any>(null);
   const onSubmit = async (FormValues: FieldValues) => {
+    const UploadingBlogData = {
+      blog_name: FormValues.blog_name,
+      blog_images: FormValues.blog_image,
+      blog_description: content,
+    };
+
     try {
-      const response: any = await createBlogs(FormValues);
+      const response: any = await createBlogs(UploadingBlogData);
       if (response.data && response.data.acknowledged === true) {
         toast({
           title: "Your Blog has been added! 💖",
@@ -49,11 +55,7 @@ const UploadBlogs = () => {
             placeholder="Image"
           />
           <label className="font-semibold ">Content</label>
-          <Textarea
-            {...register("blog_description")}
-            className="m-3"
-            placeholder="Type your message here."
-          />
+          <Tiptap setContent={setContent} />
           <button
             className="w-full py-2 bg-black text-white rounded hover:bg-white hover:text-black text-xl font-semibold smooth_transition "
             type="submit"

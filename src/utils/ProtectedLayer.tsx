@@ -6,7 +6,6 @@ import { ReactNode } from "react";
 
 const ProtectedLayer = ({ children }: { children: any }) => {
   const token = useAppSelector(userCurrentToken);
-  console.log(token);
   const router = useRouter();
 
   if (!token) {

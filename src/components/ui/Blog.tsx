@@ -56,9 +56,11 @@ const Blog = async () => {
                               </p>
                             </div>
                           </div>
-                          <p className="text-sm font-normal">
-                            {blog.blog_description}
-                          </p>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: blog.blog_description,
+                            }}
+                          />
                         </div>
                       </CardContent>
                     </Card>

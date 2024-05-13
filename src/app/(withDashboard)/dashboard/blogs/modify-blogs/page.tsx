@@ -31,6 +31,7 @@ import { useDeleteBlogsMutation, useGetBlogsQuery } from "@/redux/api/blogsApi";
 import { Button } from "@/components/ui/button";
 import { TBlogData } from "@/types/types";
 import BlogUpdateModal from "@/components/ui/BlogUpdateModal";
+import { decodeHtmlString } from "@/utils/BlogJsonToHtml";
 
 const ModifyBlogs = () => {
   const { data: blogPosts } = useGetBlogsQuery("");
@@ -102,9 +103,11 @@ const ModifyBlogs = () => {
                   </p>
                 </TableCell>
                 <TableCell>
-                  <p className="text-xs  text-wrap">
-                    {singlePostData.blog_description}
-                  </p>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: singlePostData.blog_description,
+                    }}
+                  />
                 </TableCell>
                 <TableCell>
                   <button
