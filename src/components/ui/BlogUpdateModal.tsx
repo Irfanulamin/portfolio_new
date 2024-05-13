@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { useUpdateSkillsMutation } from "@/redux/api/skillsApi";
 import { Input } from "@/components/ui/input";
@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useUpdateBlogsMutation } from "@/redux/api/blogsApi";
+import Tiptap from "./Tiptap";
 
 const BlogUpdateModal = ({
   singleBlogData,
@@ -15,18 +16,23 @@ const BlogUpdateModal = ({
   singleBlogData: any;
   onClose: any;
 }) => {
-  const { handleSubmit, register, reset } = useForm();
+  const { handleSubmit, register } = useForm();
 
   const [updateBlogsData] = useUpdateBlogsMutation();
+
+  const [content, setContent] = useState<any>(null);
 
   const onSubmit = async (FormData: any) => {
     console.log(FormData);
     try {
-      const updatedBlogData = {
+      const updatedBlogData: any = {
         blog_name: FormData?.blog_name,
         blog_image: FormData?.blog_image,
-        blog_description: FormData?.blog_description,
+        blog_description: content ? content : singleBlogData.blog_description,
       };
+      if (content.trim() !== "") {
+        updatedBlogData.blog_description = content;
+      }
       const { data }: any = await updateBlogsData({
         id: FormData?._id,
         updatedBlogs: updatedBlogData,
@@ -86,11 +92,9 @@ const BlogUpdateModal = ({
                   </div>
                   <div>
                     <label className="font-semibold ">Content</label>
-                    <Textarea
-                      {...register("blog_description")}
-                      className="m-3"
+                    <Tiptap
+                      setContent={setContent}
                       defaultValue={singleBlogData.blog_description}
-                      placeholder="Type your message here."
                     />
                   </div>
                 </div>

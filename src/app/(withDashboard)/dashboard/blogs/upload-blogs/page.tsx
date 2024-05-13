@@ -14,7 +14,7 @@ const UploadBlogs = () => {
   const onSubmit = async (FormValues: FieldValues) => {
     const UploadingBlogData = {
       blog_name: FormValues.blog_name,
-      blog_images: FormValues.blog_image,
+      blog_image: FormValues.blog_image,
       blog_description: content,
     };
 
@@ -55,7 +55,7 @@ const UploadBlogs = () => {
             placeholder="Image"
           />
           <label className="font-semibold ">Content</label>
-          <Tiptap setContent={setContent} />
+          <Tiptap defaultValue={""} setContent={setContent} />
           <button
             className="w-full py-2 bg-black text-white rounded hover:bg-white hover:text-black text-xl font-semibold smooth_transition "
             type="submit"
