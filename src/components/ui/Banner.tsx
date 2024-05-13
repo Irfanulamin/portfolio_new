@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { HiOutlineFolderDownload } from "react-icons/hi";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaGithub, FaPhoneAlt, FaLinkedin } from "react-icons/fa";
 import Container from "@/utils/Container";
-import { RiGraduationCapFill } from "react-icons/ri";
 import BannerImage from "./BannerImage";
 
 const Banner = () => {
@@ -20,8 +19,20 @@ const Banner = () => {
             passion for design and technology, I am dedicated to delivering
             smooth and enjoyable user experiences that leave a positive impact.
           </p>
+          <div className="flex justify-start items-center gap-2">
+            <div>
+              <Link href="https://github.com/Irfanulamin">
+                <FaGithub className="w-12 h-12 text-black hover:text-amber-600 smooth_transition" />
+              </Link>
+            </div>
+            <div>
+              <Link href="https://www.linkedin.com/in/irfanul-amin/">
+                <FaLinkedin className="w-12 h-12 text-blue-500 hover:text-amber-600 smooth_transition" />
+              </Link>
+            </div>
+          </div>
 
-          <div className="flex items-center py-4">
+          <div className="flex items-center pt-8 pb-4">
             <div className="inline-block mr-4">
               <Link
                 href="/contact-me"
