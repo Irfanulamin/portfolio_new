@@ -6,6 +6,7 @@ import { ImCancelCircle } from "react-icons/im";
 import { FieldValues, useForm } from "react-hook-form";
 import { useCreateProjectsMutation } from "@/redux/api/projectsApi";
 import { useToast } from "@/components/ui/use-toast";
+import { Button } from "@/components/ui/button";
 
 const UploadProjectsPage = () => {
   const { toast } = useToast();
@@ -100,6 +101,7 @@ const UploadProjectsPage = () => {
           />
           <label className="font-semibold ">Content</label>
           <Textarea
+            required
             className="m-3 border border-slate-300"
             placeholder="Type your message here."
             {...register("project_description")}
@@ -143,12 +145,9 @@ const UploadProjectsPage = () => {
               {features.length === 2 ? "feature" : "features"} in your project.
             </p>
           )}
-          <button
-            className="w-full my-1 p-2 bg-black text-white rounded hover:bg-white hover:text-black text-xl font-semibold smooth_transition mx-auto"
-            type="submit"
-          >
+          <Button type="submit" variant="primary" size="xl">
             Upload !
-          </button>
+          </Button>
         </form>
       </div>
     </div>

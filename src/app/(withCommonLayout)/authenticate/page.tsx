@@ -9,6 +9,7 @@ import { useLoginUserMutation } from "@/redux/api/LoginApi";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/redux/hook";
 import { setUser } from "@/redux/feature/authSlice";
+import { Button } from "@/components/ui/button";
 
 const AuthnticatePage = () => {
   const router = useRouter();
@@ -81,12 +82,9 @@ const AuthnticatePage = () => {
             </div>
 
             <div className=" py-6">
-              <button
-                type="submit"
-                className=" w-full rounded-sm border-none hover:bg-white bg-[#a80000] hover:text-[#a80000] border-white font-semibold  text-white py-3 smooth_transition"
-              >
+              <Button type="submit" variant="danger" size="xl">
                 Login
-              </button>
+              </Button>
             </div>
           </form>
         </div>

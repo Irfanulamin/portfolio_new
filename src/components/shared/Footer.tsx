@@ -19,7 +19,7 @@ const Footer = () => {
       </div>
 
       <div className="flex justify-end items-end  ">
-        <ul className="flex flex-wrap gap-3 justify-center items-end gap-x-7">
+        <ul className="flex flex-wrap gap-3 justify-center items-end ">
           <li>
             <Link
               href="/aboutme"
@@ -62,22 +62,25 @@ const Footer = () => {
         </ul>
       </div>
       <hr />
-      <div className="flex flex-wrap justify-end items-center gap-4 mt-6">
-        <div className="flex flex-wrap justify-center items-center gap-1.5">
-          <div className="text-white text-xs">+880 1827563064</div>
-          <div>
-            <PiPhoneCallBold className="text-white" />
-          </div>
-        </div>
-
-        <div className="flex flex-wrap justify-center items-center gap-1.5">
-          <div className="text-white text-xs">
-            irfanulamin07@gmail.com | irfanulamin10@gmail.com
-          </div>
-          <div>
-            <MdMarkEmailRead className="text-white" />
-          </div>
-        </div>
+      <div className="flex flex-wrap justify-end gap-1 md:gap-2 lg:gap-4 mt-1">
+        <p className="text-white text-sm">
+          +880 188827563064
+          <span className="inline-block">
+            <PiPhoneCallBold className="text-white w-4 h-4" />
+          </span>
+        </p>
+        <p className="text-white text-sm">
+          irfanulamin07@gmail.com{" "}
+          <span className="inline-block -mb-1">
+            <MdMarkEmailRead className="text-white w-4 h-4" />
+          </span>
+        </p>
+        <p className="text-white text-sm">
+          irfanulamin10@gmail.com{" "}
+          <span className="inline-block -mb-1">
+            <MdMarkEmailRead className="text-white w-4 h-4" />
+          </span>
+        </p>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import emailjs from "@emailjs/browser";
 import Container from "@/utils/Container";
 import Image from "next/image";
 import { MdAttachEmail } from "react-icons/md";
+import { Button } from "@/components/ui/button";
 
 const Contactme: React.FC = () => {
   const { toast } = useToast();
@@ -54,7 +55,7 @@ const Contactme: React.FC = () => {
               />
             </div>
           </div>
-          <div className="w-full border-2 border-black/50 rounded p-8 p lg:w-7/12 px-20">
+          <div className="w-full border-2 border-black/50 rounded py-4 px-8 lg:w-7/12 ">
             <p className="text-lg font-semibold">
               "What are you waiting for ? Get in touch now."
             </p>
@@ -76,7 +77,7 @@ const Contactme: React.FC = () => {
                   E-mail
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   name="from_email"
                   required
                   placeholder="Your email"
@@ -93,11 +94,9 @@ const Contactme: React.FC = () => {
                 className="mt-1 w-full p-2 text-black border-2 border-gray-400 rounded resize-none focus:outline-none focus:border-black text-xs md:text-lg lg:text-lg"
                 required
               ></textarea>
-              <input
-                type="submit"
-                value="Send"
-                className="w-full text-white hover:text-black text-center py-2 bg-black rounded my-2 font-semibold tracking-wide hover:bg-amber-600  smooth_transition"
-              />
+              <Button type="submit" value="Send" variant="primary" size="xl">
+                Send
+              </Button>
             </form>
           </div>
         </div>

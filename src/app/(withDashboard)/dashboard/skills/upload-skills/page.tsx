@@ -4,6 +4,7 @@ import { useCreateSkillsMutation } from "@/redux/api/skillsApi";
 import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
+import { Button } from "@/components/ui/button";
 
 const UploadSkillsPage = () => {
   const { toast } = useToast();
@@ -48,12 +49,9 @@ const UploadSkillsPage = () => {
             placeholder="Image"
             required
           />
-          <button
-            className="w-full py-2 bg-black text-white rounded hover:bg-white hover:text-black text-xl font-semibold smooth_transition "
-            type="submit"
-          >
+          <Button type="submit" variant="primary" size="xl">
             Upload !
-          </button>
+          </Button>
         </form>
       </div>
     </div>

@@ -125,11 +125,10 @@ const Navbar = () => {
           </li>
           {authenticate && (
             <li>
-              {" "}
               <Button
                 onClick={() => dispatch(logOut())}
                 size="sm"
-                variant="destructive"
+                variant="danger"
               >
                 Logout
               </Button>

@@ -1,5 +1,6 @@
 "use client";
 import Tiptap from "@/components/ui/Tiptap";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { useCreateBlogsMutation } from "@/redux/api/blogsApi";
@@ -46,6 +47,7 @@ const UploadBlogs = () => {
             type="text"
             className="m-3"
             placeholder="Title"
+            required
           />
           <label className="font-semibold ">Image</label>
           <Input
@@ -53,15 +55,13 @@ const UploadBlogs = () => {
             type="url"
             className="m-3"
             placeholder="Image"
+            required
           />
           <label className="font-semibold ">Content</label>
           <Tiptap defaultValue={""} setContent={setContent} />
-          <button
-            className="w-full py-2 bg-black text-white rounded hover:bg-white hover:text-black text-xl font-semibold smooth_transition "
-            type="submit"
-          >
+          <Button type="submit" variant="primary" size="xl">
             Upload !
-          </button>
+          </Button>
         </form>
       </div>
     </div>

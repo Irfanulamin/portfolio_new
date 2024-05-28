@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import dashboardImage from "@/asset/dashboard.jpg";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const DashboardHomepage = () => {
   return (
@@ -23,10 +24,12 @@ const DashboardHomepage = () => {
           className="h-[40rem] w-[40rem] object-cover "
         />
       </div>
-      <p className=" hover:underline text-center py=2">
-        Want To Go Back To Homepage ?{" "}
-        <Link href="/" className="text-blue-600">
-          Home
+      <p className="text-center py-2">
+        Want To Go Back To Homepage ?
+        <Link href="/">
+          <Button variant="secondary" className="mx-2">
+            Home Page
+          </Button>
         </Link>
       </p>
     </div>

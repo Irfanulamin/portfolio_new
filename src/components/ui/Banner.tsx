@@ -3,6 +3,7 @@ import { HiOutlineFolderDownload } from "react-icons/hi";
 import { FaGithub, FaPhoneAlt, FaLinkedin } from "react-icons/fa";
 import Container from "@/utils/Container";
 import BannerImage from "./BannerImage";
+import { Button } from "@/components/ui/button";
 
 const Banner = () => {
   return (
@@ -34,22 +35,27 @@ const Banner = () => {
 
           <div className="flex items-center pt-8 pb-4">
             <div className="inline-block mr-4">
-              <Link
-                href="/contact-me"
-                className="flex justify-center items-center gap-1 text-white bg-black px-2 py-1 border hover:border-black hover:bg-transparent hover:text-black font-semibold smooth_transition "
-              >
-                Contact
-                <FaPhoneAlt className="w-5 h-5" />
+              <Link href="/contact-me">
+                <Button variant="primary">
+                  <div className="flex justify-center items-center gap-1 ">
+                    Contact
+                    <FaPhoneAlt className="w-5 h-5" />
+                  </div>
+                </Button>
               </Link>
             </div>
             <div className="inline-block">
               <Link
                 href="https://drive.google.com/u/0/uc?id=1PqC6JjcPdIc4lpr4bkkIb6aYhToWNLtT&export=download"
                 download
-                className="flex justify-center items-center gap-1 text-black px-2 py-1 border border-black hover:bg-black hover:text-white font-semibold smooth_transition"
+                className="flex justify-center items-center gap-1 "
               >
-                Resume
-                <HiOutlineFolderDownload className="w-5 h-5"></HiOutlineFolderDownload>
+                <Button variant="secondary">
+                  <div className="flex justify-center items-center gap-1 ">
+                    Resume
+                    <HiOutlineFolderDownload className="w-5 h-5" />
+                  </div>
+                </Button>
               </Link>
             </div>
           </div>

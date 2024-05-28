@@ -143,7 +143,7 @@ const DashboardBar = () => {
               <Button
                 onClick={() => dispatch(logOut())}
                 size="sm"
-                variant="destructive"
+                variant="danger"
               >
                 Logout
               </Button>
@@ -253,8 +253,7 @@ const DashboardBar = () => {
                 <Button
                   onClick={() => dispatch(logOut())}
                   size="sm"
-                  variant="destructive"
-                  className="w-full"
+                  variant="danger"
                 >
                   Logout
                 </Button>
