@@ -11,8 +11,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Table,
   TableBody,
@@ -32,6 +30,7 @@ import { Button } from "@/components/ui/button";
 import { TBlogData } from "@/types/types";
 import BlogUpdateModal from "@/components/ui/BlogUpdateModal";
 import { decodeHtmlString } from "@/utils/BlogJsonToHtml";
+import { truncateText } from "@/utils/truncateText";
 
 const ModifyBlogs = () => {
   const { data: blogPosts } = useGetBlogsQuery("");
@@ -105,7 +104,10 @@ const ModifyBlogs = () => {
                 <TableCell>
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: singlePostData.blog_description,
+                      __html: truncateText(
+                        singlePostData.blog_description,
+                        300
+                      ),
                     }}
                   />
                 </TableCell>

@@ -7,13 +7,13 @@ import Expertise from "@/components/ui/Expertise";
 
 export default function Home() {
   return (
-    <>
+    <div className="min-h-screen h-full">
       <Banner />
       <Expertise />
       <Aboutme />
       <AllProjects />
       <Contactme />
       <Blog />
-    </>
+    </div>
   );
 }

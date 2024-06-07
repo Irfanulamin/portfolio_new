@@ -10,6 +10,7 @@ import { truncateText } from "@/utils/truncateText";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { SiBlogger } from "react-icons/si";
+import Link from "next/link";
 
 const Blog = async () => {
   const res = await fetch(process.env.BLOGS_URL as string, {
@@ -68,7 +69,9 @@ const Blog = async () => {
                         </div>
                       </CardContent>
                       <section className="flex justify-end">
-                        <Button variant="blog">See More</Button>
+                        <Link href={`blogs/${blog._id}`}>
+                          <Button variant="blog">See More</Button>
+                        </Link>
                       </section>
                     </Card>
                   </div>
