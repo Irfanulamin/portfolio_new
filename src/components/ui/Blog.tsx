@@ -6,7 +6,9 @@ import {
 } from "@/components/ui/carousel";
 import { TBlogData } from "@/types/types";
 import Container from "@/utils/Container";
+import { truncateText } from "@/utils/truncateText";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { SiBlogger } from "react-icons/si";
 
 const Blog = async () => {
@@ -60,11 +62,14 @@ const Blog = async () => {
                           </div>
                           <div
                             dangerouslySetInnerHTML={{
-                              __html: blog.blog_description,
+                              __html: truncateText(blog.blog_description, 300),
                             }}
                           />
                         </div>
                       </CardContent>
+                      <section className="flex justify-end">
+                        <Button variant="blog">See More</Button>
+                      </section>
                     </Card>
                   </div>
                 </CarouselItem>

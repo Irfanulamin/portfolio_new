@@ -19,6 +19,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         primary:
           "bg-amber-600 text-base font-bold text-black border-amber-900 border-2 border-b-4 active:border-b-2 hover:border-amber-800",
+        blog: "bg-[#0ea5e9] text-base font-bold text-black border-[#0369a1] border-2 border-b-4 active:border-b-2 hover:border-[#0c4a6e]",
         secondary:
           "bg-white text-base font-bold text-black border-slate-700 border-2 border-b-4 active:border-b-2 hover:border-slate-600",
         danger:
