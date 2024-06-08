@@ -69,7 +69,7 @@ const Blog = async () => {
                         </div>
                       </CardContent>
                       <section className="flex justify-end">
-                        <Link href={`blogs/${blog._id}`}>
+                        <Link href={`/blogs/${blog?._id}`}>
                           <Button variant="blog">See More</Button>
                         </Link>
                       </section>
