@@ -1,12 +1,7 @@
+import { TBlogData } from "@/types/types";
 import Container from "@/utils/Container";
 import Image from "next/image";
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 
 const SingleBlogPost = async ({ params }: { params: { id: string } }) => {
   const res = await fetch(`${process.env.BLOGS_URL}/${params.id}`, {
@@ -48,5 +43,14 @@ const SingleBlogPost = async ({ params }: { params: { id: string } }) => {
     </div>
   );
 };
+
+export async function generateStaticParams() {
+  const res = await fetch(`${process.env.BLOGS_URL}`);
+  const blogs = await res.json();
+
+  return blogs.slice(0, 10).map((blog: TBlogData) => {
+    id: blog._id;
+  });
+}
 
 export default SingleBlogPost;
