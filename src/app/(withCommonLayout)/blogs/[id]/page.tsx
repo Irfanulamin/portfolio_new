@@ -19,7 +19,7 @@ const SingleBlogPost = async ({ params }: { params: { id: string } }) => {
                 alt={blog.blog_name}
                 width={400}
                 height={400}
-                className="w-1/2 h-96 object-cover"
+                className="w-full h-96 object-cover"
               />
               <div className="flex justify-between items-center">
                 <div>
