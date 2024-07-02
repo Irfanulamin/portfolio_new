@@ -1,4 +1,10 @@
-import { Card, CardContent } from "@/components/ui/card";
+/* eslint-disable react/no-unescaped-entities */
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -11,6 +17,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { SiBlogger } from "react-icons/si";
 import Link from "next/link";
+import { FaPencilAlt } from "react-icons/fa";
 
 const Blog = async () => {
   const res = await fetch(process.env.BLOGS_URL as string, {
@@ -19,16 +26,17 @@ const Blog = async () => {
   const blogPosts = await res.json();
   return (
     <Container>
-      <div className="my-2 md:my-6 lg:my-12 bg-black py-4  flex gap-2 justify-center items-center rounded ">
+      <div className="flex justify-center items-center mb-16">
         <div>
-          <p className=" text-3xl md:text-5xl lg:text-5xl inline-block text-white  font-semibold ">
-            Blog Section
+          <p className=" text-3xl  lg:text-5xl tracking-wide  text-black  font-bold ">
+            Blogs
           </p>
         </div>
         <div>
-          <SiBlogger className="w-12 h-12 text-white" />
+          <FaPencilAlt className="w-12 h-12  text-black" />
         </div>
       </div>
+
       <div className="flex justify-center items-center mb-16">
         <Carousel className=" max-w-full  ">
           <CarouselContent>
@@ -38,18 +46,18 @@ const Blog = async () => {
                   key={index}
                   className="pl-1 md:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="border  rounded">
-                    <Card>
-                      <CardContent className="flex  items-center justify-center py-6">
-                        <div className="w-full">
+                  <div className="border rounded h-96">
+                    <Card className="h-full">
+                      <CardContent className="flex flex-col items-center justify-center py-6 h-full">
+                        <div className="w-full flex-grow">
                           <Image
                             src={blog.blog_image}
                             alt={blog.blog_name}
                             width={400}
                             height={400}
-                            className="w-full h-72 object-cover"
+                            className="w-full h-48 object-cover"
                           />
-                          <div className="flex justify-between items-center">
+                          <div className="flex justify-between items-center mt-4">
                             <div>
                               <h2 className="text-lg font-bold text-sky-600 tracking-wide">
                                 {blog.blog_name}
@@ -61,18 +69,21 @@ const Blog = async () => {
                               </p>
                             </div>
                           </div>
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: truncateText(blog.blog_description, 300),
-                            }}
-                          />
+                          <div className="flex justify-between items-center gap-x-1">
+                            <div
+                              className="mt-2"
+                              dangerouslySetInnerHTML={{
+                                __html: truncateText(blog.blog_description, 80),
+                              }}
+                            />
+                            <div>
+                              <Link href={`/blogs/${blog?._id}`}>
+                                <Button variant="blog">See More.</Button>
+                              </Link>
+                            </div>
+                          </div>
                         </div>
                       </CardContent>
-                      <section className="flex justify-end">
-                        <Link href={`/blogs/${blog?._id}`}>
-                          <Button variant="blog">See More</Button>
-                        </Link>
-                      </section>
                     </Card>
                   </div>
                 </CarouselItem>
